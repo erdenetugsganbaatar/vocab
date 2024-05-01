@@ -1,0 +1,6 @@
+{
+  "restartable": "r",
+  "watch": ["src/"],
+  "ext": "ts",
+  "exec": "node -r sucrase/register src/index.ts"
+}
