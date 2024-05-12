@@ -1,3 +1,11 @@
+type Test {
+  testField: String
+}
+
 type Query {
+  example: [Test]
+}
+
+type Mutation {
   example: String
 }
