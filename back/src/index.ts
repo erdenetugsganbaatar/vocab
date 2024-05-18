@@ -8,6 +8,7 @@ import { getErrorMessage } from '@/lib';
 import { expressMiddleware } from '@apollo/server/express4';
 import { apolloServer } from '@/graphql';
 import { connect } from '@/helpers/mongoose';
+import { authRouter } from './api/routers/auth';
 
 config();
 
@@ -29,6 +30,7 @@ export const startServer = async () => {
   await apolloServer.start();
   const apolloMiddleware = expressMiddleware(apolloServer);
   app.use('/graphql', apolloMiddleware);
+  app.use('/auth', authRouter);
 
   app.use((error: any, _req: Request, res: Response, _next: NextFunction): void => {
     res.status(500).send({ error: getErrorMessage(error) });
