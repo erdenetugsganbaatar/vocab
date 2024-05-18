@@ -7,19 +7,28 @@ services:
     volumes:
       - mongo_db:/data/db
 
-  app:
+  back:
     image: node:20
     command: sh -c "yarn install && yarn run dev"
     ports:
       - 8080:8080
     working_dir: /app
     volumes:
-      - ./:/app
+      - ./back:/app
     depends_on:
       - mongo_db
     environment:
       MONGO_URL: mongodb://mongo_db:27017/sora
       PORT: 8080
+
+  front:
+    image: node:20
+    command: sh -c "yarn install && yarn run dev"
+    ports: 
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./web:/app
 
 volumes:
   mongo_db: {}
