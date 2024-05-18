@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-export const vocabSchema = new Schema(
+const vocabSchema = new Schema(
   {
     word: {
       type: String,
