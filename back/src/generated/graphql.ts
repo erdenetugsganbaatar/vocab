@@ -23,11 +23,19 @@ export type Mutation = {
 export type Query = {
   __typename?: 'Query';
   example?: Maybe<Array<Maybe<Test>>>;
+  listUsers?: Maybe<Array<Maybe<User>>>;
 };
 
 export type Test = {
   __typename?: 'Test';
   testField?: Maybe<Scalars['String']['output']>;
+};
+
+export type User = {
+  __typename?: 'User';
+  email?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  picture?: Maybe<Scalars['String']['output']>;
 };
 
 export type AdditionalEntityFields = {
@@ -110,6 +118,7 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   Query: ResolverTypeWrapper<{}>;
   Test: ResolverTypeWrapper<Test>;
+  User: ResolverTypeWrapper<User>;
   AdditionalEntityFields: AdditionalEntityFields;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
 };
@@ -120,6 +129,7 @@ export type ResolversParentTypes = {
   String: Scalars['String']['output'];
   Query: {};
   Test: Test;
+  User: User;
   AdditionalEntityFields: AdditionalEntityFields;
   Boolean: Scalars['Boolean']['output'];
 };
@@ -177,6 +187,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   example?: Resolver<Maybe<Array<Maybe<ResolversTypes['Test']>>>, ParentType, ContextType>;
+  listUsers?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
 };
 
 export type TestResolvers<ContextType = any, ParentType extends ResolversParentTypes['Test'] = ResolversParentTypes['Test']> = {
@@ -184,10 +195,18 @@ export type TestResolvers<ContextType = any, ParentType extends ResolversParentT
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
+  email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Test?: TestResolvers<ContextType>;
+  User?: UserResolvers<ContextType>;
 };
 
 export type DirectiveResolvers<ContextType = any> = {

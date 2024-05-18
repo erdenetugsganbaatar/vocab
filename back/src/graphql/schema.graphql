@@ -2,8 +2,15 @@ type Test {
   testField: String
 }
 
+type User {
+  name: String
+  email: String
+  picture: String
+}
+
 type Query {
   example: [Test]
+  listUsers: [User]
 }
 
 type Mutation {
