@@ -1,9 +1,10 @@
 FROM node:20
 
-WORKDIR /app
+WORKDIR /app/back
 
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock /app/back
+
 
 RUN yarn install
 
-COPY . .
+COPY . /app/back

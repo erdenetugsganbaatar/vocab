@@ -8,29 +8,29 @@ services:
       - mongo_db:/data/db
 
   back:
-    image: node:20
     build: ./back
-    command: sh -c "yarn dev"
     ports:
       - 8080:8080
-    working_dir: /app
+    working_dir: /app/back
     volumes:
-      - ./back:/app
+      - ./back:/app/back
+      - /app/back/node_modules
     depends_on:
       - mongo_db
     environment:
       MONGO_URL: mongodb://mongo_db:27017/sora
       PORT: 8080
+    entrypoint: ['yarn', 'dev']
 
   front:
-    image: node:20
     build: ./web
-    command: sh -c "yarn dev"
-    ports: 
+    ports:
       - 3000:3000
-    working_dir: /app
+    working_dir: /app/web
     volumes:
-      - ./web:/app
+      - ./web:/app/web
+      - /app/web/node_modules
+    entrypoint: ['yarn', 'dev']
 
 volumes:
   mongo_db: {}
