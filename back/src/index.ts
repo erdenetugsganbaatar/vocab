@@ -9,6 +9,8 @@ import { expressMiddleware } from '@apollo/server/express4';
 import { apolloServer } from '@/graphql';
 import { connect } from '@/helpers/mongoose';
 import { authRouter } from './api/routers/auth';
+import { verifyUserJWT } from './helpers/jwt';
+import { UserTokenPayload } from './types/user';
 
 config();
 
@@ -28,7 +30,15 @@ export const startServer = async () => {
   await connect();
 
   await apolloServer.start();
-  const apolloMiddleware = expressMiddleware(apolloServer);
+  const apolloMiddleware = expressMiddleware(apolloServer, {
+    context: async ({ req }) => {
+      const token = req.headers.authorization?.replace(/^Bearer\s+/, '');
+
+      const user = await verifyUserJWT<UserTokenPayload>(token);
+
+      return { user };
+    },
+  });
   app.use('/graphql', apolloMiddleware);
   app.use('/auth', authRouter);
 

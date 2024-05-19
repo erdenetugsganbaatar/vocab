@@ -2,6 +2,7 @@ import { UserModel } from '@/db/mongoose/user';
 import { createUserJWT } from '@/helpers/jwt';
 import { oauth2Client } from '@/helpers/googleAuth';
 import { createController } from '@/lib/controller';
+import { UserTokenPayload } from '@/types/user';
 
 export default createController(async ({ req, res }) => {
   const { code, error } = req.query;
@@ -33,11 +34,14 @@ export default createController(async ({ req, res }) => {
   // but don't update user if exist
   const user = await UserModel.findOneAndUpdate({ googleId }, { picture, email, name, googleId }, { new: true, upsert: true, setDefaultsOnInsert: true });
 
-  const jwt = await createUserJWT({
+  const UserTokenPayload: UserTokenPayload = {
+    id: user.id,
     picture: user.picture,
     email: user.email,
     name: user.name,
-  });
+  };
+
+  const jwt = await createUserJWT(UserTokenPayload);
 
   res.send(jwt);
 });
