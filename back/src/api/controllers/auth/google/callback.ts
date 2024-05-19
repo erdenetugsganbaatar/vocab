@@ -1,5 +1,5 @@
 import { UserModel } from '@/db/mongoose/user';
-import { createUserJWT } from '@/helpers/createJWT';
+import { createUserJWT } from '@/helpers/jwt';
 import { oauth2Client } from '@/helpers/googleAuth';
 import { createController } from '@/lib/controller';
 
