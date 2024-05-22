@@ -16,3 +16,7 @@ type Query {
   listUsers: [User]
   listVocabs: [Vocab]
 }
+
+type Mutation {
+  addVocab(word: String!, translations: [String], examples: [String]): Vocab
+}

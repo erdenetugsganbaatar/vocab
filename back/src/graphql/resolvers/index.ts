@@ -1,10 +1,10 @@
 import { Resolvers } from '@/generated/graphql';
 import * as queries from './queries';
-// import * as mutations from './mutations';
+import * as mutations from './mutations';
 
 const resolvers: Resolvers = {
   Query: queries,
-  // Mutation: mutations,
+  Mutation: mutations,
 };
 
 export default resolvers;
