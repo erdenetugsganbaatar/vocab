@@ -3,7 +3,7 @@
 Run the development server
 
 ```bash
-docker compose up
+docker compose up --watch
 # or
-docker compose up [back | front]
+docker compose up --watch [back | front]
 ```
