@@ -5,7 +5,14 @@ type User {
   picture: String
 }
 
-type Query {
-  listUsers: [User]
+type Vocab {
+  id: String
+  word: String
+  translations: [String]
+  examples: [String]
 }
 
+type Query {
+  listUsers: [User]
+  listVocabs: [Vocab]
+}

@@ -18,13 +18,23 @@ export type Scalars = {
 export type Query = {
   __typename?: 'Query';
   listUsers?: Maybe<Array<Maybe<User>>>;
+  listVocabs?: Maybe<Array<Maybe<Vocabs>>>;
 };
 
 export type User = {
   __typename?: 'User';
   email?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   picture?: Maybe<Scalars['String']['output']>;
+};
+
+export type Vocabs = {
+  __typename?: 'Vocabs';
+  examples?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  id?: Maybe<Scalars['String']['output']>;
+  translations?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  word?: Maybe<Scalars['String']['output']>;
 };
 
 export type AdditionalEntityFields = {
@@ -106,6 +116,7 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   User: ResolverTypeWrapper<User>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  Vocabs: ResolverTypeWrapper<Vocabs>;
   AdditionalEntityFields: AdditionalEntityFields;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
 };
@@ -115,6 +126,7 @@ export type ResolversParentTypes = {
   Query: {};
   User: User;
   String: Scalars['String']['output'];
+  Vocabs: Vocabs;
   AdditionalEntityFields: AdditionalEntityFields;
   Boolean: Scalars['Boolean']['output'];
 };
@@ -168,18 +180,29 @@ export type MapDirectiveResolver<Result, Parent, ContextType = any, Args = MapDi
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   listUsers?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
+  listVocabs?: Resolver<Maybe<Array<Maybe<ResolversTypes['Vocabs']>>>, ParentType, ContextType>;
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   picture?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type VocabsResolvers<ContextType = any, ParentType extends ResolversParentTypes['Vocabs'] = ResolversParentTypes['Vocabs']> = {
+  examples?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  translations?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  word?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
+  Vocabs?: VocabsResolvers<ContextType>;
 };
 
 export type DirectiveResolvers<ContextType = any> = {
