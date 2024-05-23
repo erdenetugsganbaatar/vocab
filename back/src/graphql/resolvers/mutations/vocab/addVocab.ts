@@ -1,8 +1,9 @@
 import { VocabModel } from '@/db/mongoose/vocab';
+import { MutationResolvers } from '@/generated/graphql';
 
-// TODO: tugsuu - create lib function to support types to resolvers
-export const addVocab = async (_parent: any, args: any, _contextValue: any, _info: any) => {
+export const addVocab: MutationResolvers["addVocab"] = async (_parent, args, _contextValue, _info) => {
   const { word, examples, translations } = args;
+  
   return await VocabModel.create({
     word,
     examples,

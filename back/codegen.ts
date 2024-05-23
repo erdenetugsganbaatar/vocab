@@ -8,6 +8,7 @@ const config: CodegenConfig = {
       plugins: ['typescript', 'typescript-resolvers', 'typescript-mongodb'],
       config: {
         useIndexSignature: true,
+        contextType: '@/types/context#Context'
       },
     },
     './graphql.schema.json': {

@@ -11,6 +11,7 @@ import { connect } from '@/helpers/mongoose';
 import { authRouter } from './api/routers/auth';
 import { verifyUserJWT } from './helpers/jwt';
 import { UserTokenPayload } from './types/user';
+import { Context } from './types/context';
 
 config();
 
@@ -36,7 +37,9 @@ export const startServer = async () => {
 
       const user = await verifyUserJWT<UserTokenPayload>(token);
 
-      return { user };
+      const context: Context = { user };
+      
+      return context
     },
   });
   app.use('/graphql', apolloMiddleware);
