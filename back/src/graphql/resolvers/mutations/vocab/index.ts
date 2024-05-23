@@ -1,1 +1,2 @@
-export * from './addVocab';
+export * from "./addVocab";
+export * from "./deleteVocab";

@@ -19,4 +19,5 @@ type Query {
 
 type Mutation {
   addVocab(word: String!, translations: [String], examples: [String]): Vocab
+  deleteVocab(id: String!): String
 }

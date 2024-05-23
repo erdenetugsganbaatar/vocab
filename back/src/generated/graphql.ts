@@ -20,6 +20,7 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   addVocab?: Maybe<Vocab>;
+  deleteVocab?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -27,6 +28,11 @@ export type MutationAddVocabArgs = {
   examples?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   translations?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   word: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteVocabArgs = {
+  id: Scalars['String']['input'];
 };
 
 export type Query = {
@@ -197,6 +203,7 @@ export type MapDirectiveResolver<Result, Parent, ContextType = Context, Args = M
 
 export type MutationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
   addVocab?: Resolver<Maybe<ResolversTypes['Vocab']>, ParentType, ContextType, RequireFields<MutationAddVocabArgs, 'word'>>;
+  deleteVocab?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<MutationDeleteVocabArgs, 'id'>>;
 }>;
 
 export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
