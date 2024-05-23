@@ -1,5 +1,4 @@
 services:
-  #MongoDB
   mongo_db:
     container_name: vocab_mongo_db
     image: mongo:latest
