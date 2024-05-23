@@ -1,3 +1,10 @@
+type User {
+  id: String
+  name: String
+  email: String
+  picture: String
+}
+
 type Vocab {
   id: String
   word: String
@@ -5,10 +12,11 @@ type Vocab {
   examples: [String]
 }
 
-extend type Query {
-  listVocabs: [Vocab!]
+type Query {
+  listUsers: [User]
+  listVocabs: [Vocab]
 }
 
-extend type Mutation {
+type Mutation {
   addVocab(word: String!, translations: [String], examples: [String]): Vocab
 }
