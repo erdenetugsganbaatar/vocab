@@ -1,6 +1,7 @@
-import { UserModel } from '@/db/mongoose/user';
+import { prisma } from "@/lib/prisma";
 
 export const listUsers = async () => {
-  const docs = await UserModel.find();
+  const docs = await prisma.users.findMany();
+
   return docs;
 };

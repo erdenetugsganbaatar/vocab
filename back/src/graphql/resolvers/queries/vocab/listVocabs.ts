@@ -1,5 +1,5 @@
-import { VocabModel } from '@/db/mongoose/vocab';
+import { prisma } from "@/lib/prisma";
 
 export const listVocabs = async () => {
-  return await VocabModel.find();
+  return await prisma.vocabs.findMany();
 };

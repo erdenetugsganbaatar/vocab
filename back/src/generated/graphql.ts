@@ -25,8 +25,8 @@ export type Mutation = {
 
 
 export type MutationAddVocabArgs = {
-  examples?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  translations?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  examples?: InputMaybe<Array<Scalars['String']['input']>>;
+  translations?: InputMaybe<Array<Scalars['String']['input']>>;
   word: Scalars['String']['input'];
 };
 
@@ -51,9 +51,9 @@ export type User = {
 
 export type Vocab = {
   __typename?: 'Vocab';
-  examples?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  examples?: Maybe<Array<Scalars['String']['output']>>;
   id?: Maybe<Scalars['String']['output']>;
-  translations?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  translations?: Maybe<Array<Scalars['String']['output']>>;
   word?: Maybe<Scalars['String']['output']>;
 };
 
@@ -220,9 +220,9 @@ export type UserResolvers<ContextType = Context, ParentType extends ResolversPar
 }>;
 
 export type VocabResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Vocab'] = ResolversParentTypes['Vocab']> = ResolversObject<{
-  examples?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  examples?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  translations?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
+  translations?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
   word?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;

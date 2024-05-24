@@ -8,8 +8,8 @@ type User {
 type Vocab {
   id: String
   word: String
-  translations: [String]
-  examples: [String]
+  translations: [String!]
+  examples: [String!]
 }
 
 type Query {
@@ -18,6 +18,6 @@ type Query {
 }
 
 type Mutation {
-  addVocab(word: String!, translations: [String], examples: [String]): Vocab
+  addVocab(word: String!, translations: [String!], examples: [String!]): Vocab
   deleteVocab(id: String!): String
 }

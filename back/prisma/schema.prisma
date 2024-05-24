@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_URL")
+}
+
+model users {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String?  @unique(map: "email_1")
+  googleId  String?  @unique(map: "googleId_1")
+  name      String?
+  picture   String?
+  createdAt DateTime @default(now()) @db.Date
+  updatedAt DateTime @updatedAt @db.Date
+}
+
+model vocabs {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  examples     String[] @default([])
+  translations String[] @default([])
+  word         String
+  createdAt    DateTime @default(now()) @db.Date
+  updatedAt    DateTime @updatedAt @db.Date
+}
