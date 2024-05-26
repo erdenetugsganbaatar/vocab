@@ -7,7 +7,7 @@ import { config } from "dotenv";
 import { getErrorMessage } from "@/lib";
 import { expressMiddleware } from "@apollo/server/express4";
 import { apolloServer } from "@/graphql";
-import { authRouter } from "./api/routers/auth";
+import { authRouter } from "./rest/routers/auth";
 import { verifyUserJWT } from "./helpers/jwt";
 import { UserTokenPayload } from "./types/user";
 import { Context } from "./types/context";

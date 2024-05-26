@@ -1,5 +1,8 @@
 generator client {
   provider = "prisma-client-js"
+  // generating prisma client into src
+  // this way when we generate prisma client again docker will sync it 
+  output   = "./generated/client"
 }
 
 datasource db {

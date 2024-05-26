@@ -1,3 +1,4 @@
 dist/
 *.db
 .env
+**/prisma/generated/
