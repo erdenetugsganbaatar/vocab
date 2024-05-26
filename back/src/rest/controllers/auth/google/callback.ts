@@ -30,7 +30,7 @@ export default createController(async ({ req, res }) => {
 
   const { picture, email, name, sub: googleId } = googleUserInfo;
 
-  const user = await prisma.users.upsert({
+  const user = await prisma.user.upsert({
     where: { googleId },
     create: {
       picture,

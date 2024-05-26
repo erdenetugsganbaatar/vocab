@@ -7,6 +7,6 @@ export const deleteVocab: MutationResolvers["deleteVocab"] = async (
 ) => {
   const { id } = args;
 
-  const result = await prisma.vocabs.delete({ where: { id } });
+  const result = await prisma.vocab.delete({ where: { id } });
   return result.id;
 };

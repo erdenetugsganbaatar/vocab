@@ -9,7 +9,7 @@ export const addVocab: MutationResolvers["addVocab"] = async (
 ) => {
   const { word, examples, translations } = args;
 
-  return await prisma.vocabs.create({
+  return await prisma.vocab.create({
     data: {
       word,
       examples: examples ?? [],
