@@ -39,5 +39,6 @@ export default createController(async ({ req, res }) => {
     name: user.name,
   });
 
-  res.send(jwt);
+ // Return the token as a message
+ res.send(`<script>window.opener.postMessage({ token: '${jwt}' }, 'http://localhost:3000'); window.close();</script>`);
 });

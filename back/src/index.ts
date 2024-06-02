@@ -15,6 +15,7 @@ config();
 export const startServer = async () => {
   const app = express();
   const { PORT, WEB_URL } = process.env;
+// Enable CORS for http://localhost:3000
 
   app.use(express.json());
   app.use(
