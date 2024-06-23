@@ -1,18 +1,23 @@
-type Test {
-  testField: String
-}
-
 type User {
+  id: String
   name: String
   email: String
   picture: String
 }
 
+type Vocab {
+  id: String
+  word: String
+  translations: [String!]
+  examples: [String!]
+}
+
 type Query {
-  example: [Test]
   listUsers: [User]
+  listVocabs: [Vocab]
 }
 
 type Mutation {
-  example: String
+  addVocab(word: String!, translations: [String!], examples: [String!]): Vocab
+  deleteVocab(id: String!): String
 }

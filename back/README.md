@@ -6,5 +6,6 @@
 - Run graphql codegen after schema change
 
   ```sh
-  $ yarn codegen
+  $ npm run codegen
   ```
+  

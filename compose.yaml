@@ -1,36 +1,64 @@
 services:
-  #MongoDB
   mongo_db:
-    container_name: vocab_mongo_db
+    container_name: mongo_db
     image: mongo:latest
+    command: mongod --replSet rs0
     restart: always
     volumes:
       - mongo_db:/data/db
+    networks:
+      - mongo_network
+
+  mongo_init:
+    container_name: mongo_init
+    image: mongo:latest
+    restart: no
+    networks:
+      - mongo_network
+    depends_on:
+      - mongo_db
+    command: mongosh --host mongo_db:27017 --eval 'rs.initiate()'
 
   back:
-    image: node:20
     build: ./back
-    command: sh -c "yarn dev"
     ports:
       - 8080:8080
-    working_dir: /app
-    volumes:
-      - ./back:/app
+    working_dir: /app/back
     depends_on:
       - mongo_db
     environment:
       MONGO_URL: mongodb://mongo_db:27017/sora
       PORT: 8080
+    entrypoint: ["npm", "run", "dev"]
+    networks:
+      - mongo_network
+    develop:
+      watch:
+        - action: sync
+          path: ./back/src
+          target: /app/back/src
+        - action: rebuild
+          path: package-lock.json
 
   front:
-    image: node:20
     build: ./web
-    command: sh -c "yarn dev"
-    ports: 
+    ports:
       - 3000:3000
-    working_dir: /app
+    working_dir: /app/web
     volumes:
-      - ./web:/app
+      - /app/web/node_modules
+    entrypoint: ["yarn", "dev"]
+    develop:
+      watch:
+        - action: sync
+          path: ./web/src
+          target: /app/web/src
+        - action: rebuild
+          path: yarn.lock
 
 volumes:
   mongo_db: {}
+
+networks:
+  mongo_network:
+    driver: bridge
