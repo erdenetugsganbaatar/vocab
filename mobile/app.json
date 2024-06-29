@@ -13,13 +13,25 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "946696955351-sh5saamj9qr078ac3a57vqc5o2m48sr4.apps.googleusercontent.com"
+        }
+      },
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleSignIn": {
+          "apiKey": "YOUR_API_KEY",
+          "certificateHash": "YOUR_CERTIFICATE_HASH"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.mobile"
     },
     "web": {
       "bundler": "metro",
@@ -27,7 +39,8 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "@react-native-google-signin/google-signin"
     ],
     "experiments": {
       "typedRoutes": true
