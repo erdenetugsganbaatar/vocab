@@ -1,4 +1,4 @@
-package com.anonymous.mobile
+package mn.enhance.vocab
 
 import android.app.Application
 import android.content.res.Configuration

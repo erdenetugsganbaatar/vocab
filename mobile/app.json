@@ -21,17 +21,12 @@
       "supportsTablet": true
     },
     "android": {
-      "config": {
-        "googleSignIn": {
-          "apiKey": "YOUR_API_KEY",
-          "certificateHash": "YOUR_CERTIFICATE_HASH"
-        }
-      },
+    
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.mobile"
+      "package": "mn.enhance.vocab"
     },
     "web": {
       "bundler": "metro",

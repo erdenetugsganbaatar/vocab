@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
+import Auth from "../components/Auth";
 // import {
 //   GoogleSignin,
 //   GoogleSigninButton,
@@ -36,12 +37,7 @@ export default function Login() {
   return (
     <View style={styles.container}>
       <Text>Login</Text>
-      {/* <GoogleSigninButton
-        style={styles.signInButton}
-        size={GoogleSigninButton.Size.Wide}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={handleSignIn}
-      /> */}
+      <Auth />
     </View>
   );
 }

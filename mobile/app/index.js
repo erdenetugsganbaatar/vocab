@@ -5,7 +5,7 @@ import LoginScreen from "../screens/Login";
 import MainScreen from "../screens/MainScreen";
 
 export default function App() {
-  const [Login, setLogin] = useState(false);
+  const [Login, setLogin] = useState(true);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {

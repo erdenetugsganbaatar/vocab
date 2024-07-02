@@ -83,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.mobile'
+    namespace 'mn.enhance.vocab'
     defaultConfig {
-        applicationId 'com.anonymous.mobile'
+        applicationId 'mn.enhance.vocab'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
