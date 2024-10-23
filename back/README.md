@@ -2,10 +2,8 @@
 
 ## Development
 
-
 - Run graphql codegen after schema change
 
   ```sh
   $ npm run codegen
   ```
-  

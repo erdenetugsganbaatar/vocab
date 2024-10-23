@@ -1,6 +1,6 @@
 services:
   mongo_db:
-    container_name: mongo_db
+    container_name: vocab_mongo_db
     image: mongo:latest
     command: mongod --replSet rs0
     restart: always
@@ -10,7 +10,7 @@ services:
       - mongo_network
 
   mongo_init:
-    container_name: mongo_init
+    container_name: vocab_mongo_init
     image: mongo:latest
     restart: no
     networks:
@@ -29,7 +29,7 @@ services:
     environment:
       MONGO_URL: mongodb://mongo_db:27017/sora
       PORT: 8080
-    entrypoint: ["npm", "run", "dev"]
+    entrypoint: ['npm', 'run', 'dev']
     networks:
       - mongo_network
     develop:
@@ -47,7 +47,7 @@ services:
     working_dir: /app/web
     volumes:
       - /app/web/node_modules
-    entrypoint: ["yarn", "dev"]
+    entrypoint: ['yarn', 'dev']
     develop:
       watch:
         - action: sync
