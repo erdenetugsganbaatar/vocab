@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "946696955351",
+    "project_id": "enhance-vocab",
+    "storage_bucket": "enhance-vocab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946696955351:android:78373d529bd0a4768d9792",
+        "android_client_info": {
+          "package_name": "com.example.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946696955351-9ksodlj1ovqd9m4rf0ffq88t06i6drbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPcqhBq1HWy_0NFWGnV4mVRrlyC19DvtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946696955351-9ksodlj1ovqd9m4rf0ffq88t06i6drbg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "946696955351-3requ20ao13oudpkkgi6djdl9ooa84c7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "mn.endurdbn.vocab"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946696955351:android:02aec3a671b6e5d38d9792",
+        "android_client_info": {
+          "package_name": "mn.endurdbn.vocab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946696955351-9ksodlj1ovqd9m4rf0ffq88t06i6drbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPcqhBq1HWy_0NFWGnV4mVRrlyC19DvtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946696955351-9ksodlj1ovqd9m4rf0ffq88t06i6drbg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "946696955351-3requ20ao13oudpkkgi6djdl9ooa84c7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "mn.endurdbn.vocab"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
